@@ -17,4 +17,23 @@ class ClefUser
   def clef_id
     self.data['id']
   end
+
+  def email
+    self.data['email']
+  end
+
+  def name
+    self.data['first_name']
+  end
+
+  def person_info
+    {
+      email: self.email,
+      name: self.name
+    }
+  end
+
+  def person
+    Person.create_with(person_info).find_or_create_by(clef_id: clef_id)
+  end
 end
