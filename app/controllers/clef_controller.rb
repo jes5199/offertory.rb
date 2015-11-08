@@ -15,7 +15,7 @@ class ClefController < ApplicationController
 
     if response['success']
       session[:clef_access_token] = response['access_token']
-      render text: response.inspect
+      render text: current_clef_user.clef_id
     else
       raise Exception.new("Clef Error: #{response['error']}")
     end
