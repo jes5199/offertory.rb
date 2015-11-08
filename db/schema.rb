@@ -17,12 +17,13 @@ ActiveRecord::Schema.define(version: 1) do
   enable_extension "plpgsql"
 
   create_table "people", force: :cascade do |t|
-    t.string   "name",                           null: false
+    t.string   "name",                                           null: false
     t.string   "email"
     t.integer  "clef_id",              limit: 8
+    t.boolean  "activated",                      default: false, null: false
     t.integer  "invited_by_person_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
   end
 
   add_index "people", ["clef_id"], name: "index_people_on_clef_id", using: :btree
