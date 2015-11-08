@@ -14,8 +14,8 @@ class ClefController < ApplicationController
     response = HTTParty.post(CLEF_AUTHORIZE_URL, data)
 
     if response['success']
-      session[:clef_access_token] = response['access_token']
-      render text: current_clef_user.clef_id
+      become_clef_user(response['access_token'])
+      render text: current_user.name
     else
       raise Exception.new("Clef Error: #{response['error']}")
     end
