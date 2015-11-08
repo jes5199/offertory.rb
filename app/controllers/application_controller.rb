@@ -18,12 +18,12 @@ class ApplicationController < ActionController::Base
       if session[:person_id]
         @current_user = Person.find(session[:person_id])
       else
-        if not current_clef_user
-          return nil
-        end
+        return nil if not current_clef_user
         @current_user = current_clef_user.person
         session[:person_id] = @current_user.id
       end
+    end
+
     return @current_user
   end
 end
