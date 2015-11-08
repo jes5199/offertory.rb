@@ -10,7 +10,7 @@ class ClefUser
     if response["success"]
       @data = response["info"]
     else
-      raise Exception.new("Clef Error: #{response["error"]}")
+      raise Exception.new("Clef Error: #{response["error"]} for #{@access_token}")
     end
   end
 
