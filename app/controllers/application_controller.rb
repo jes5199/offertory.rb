@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   def become_clef_user(access_token)
     session[:person_id] = nil
-    session[:clef_access_token] = response['access_token']
+    session[:clef_access_token] = access_token
   end
 
   def current_user
