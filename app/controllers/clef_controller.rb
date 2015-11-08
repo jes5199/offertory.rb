@@ -8,7 +8,7 @@ class ClefController < ApplicationController
     } }
 
     if params['state'] != session[:clef_state]
-        raise Exception.new("Clef Mismatch #{response['state']} != #{session[:clef_state]}")
+      raise Exception.new("Clef Mismatch #{response['state']} != #{session[:clef_state]}")
     end
 
     response = HTTParty.post(CLEF_AUTHORIZE_URL, data)
