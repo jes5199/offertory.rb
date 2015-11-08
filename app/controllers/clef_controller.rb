@@ -9,9 +9,10 @@ class ClefController < ApplicationController
     response = HTTParty.post(CLEF_AUTHORIZE_URL, data)
 
     if response['success']
-        session[:clef_access_token] = response['access_token']
+      session[:clef_access_token] = response['access_token']
+      render text: response.inspect
     else
-        raise Exception("Clef Error: #{response['error']}")
+      raise Exception("Clef Error: #{response['error']}")
     end
   end
 end
