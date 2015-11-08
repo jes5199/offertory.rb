@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
 
   def become_clef_user(access_token)
     session[:person_id] = nil
+    @current_user = nil
     session[:clef_access_token] = access_token
   end
 
@@ -18,6 +19,7 @@ class ApplicationController < ActionController::Base
       if session[:person_id]
         @current_user = Person.find(session[:person_id])
       else
+        raise self.inspect if not current_clef_user
         return nil if not current_clef_user
         @current_user = current_clef_user.person
         session[:person_id] = @current_user.id
