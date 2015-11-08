@@ -1,5 +1,3 @@
-require 'config/clef.rb'
-
 class ClefController < ApplicationController
   def return
     code = params[:code]
