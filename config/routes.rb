@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'clef/return'
+
   root 'welcome#front'
 
   # The priority is based upon order of creation: first created -> highest priority.
