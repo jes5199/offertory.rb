@@ -10,7 +10,7 @@ class ClefController < ApplicationController
 
     if response['success']
       if response['state'] != session[:clef_state]
-        raise Exception.new("Clef Mismatch")
+        raise Exception.new("Clef Mismatch #{response['state']} != #{session[:clef_state]}")
       end
       session[:clef_access_token] = response['access_token']
       render text: response.inspect
