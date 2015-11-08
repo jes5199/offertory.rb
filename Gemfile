@@ -32,8 +32,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'httparty'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
+# Use Puma as the app server, recommended by https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server
+gem 'puma'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
