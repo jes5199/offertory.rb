@@ -6,7 +6,7 @@ class ClefUser
 
   def data
     return @data if @data
-    response = HTTParty.get(CLEF_INFO_URL, options: {access_token: @access_token})
+    response = HTTParty.get(CLEF_INFO_URL, query: {access_token: @access_token})
     if response["success"]
       @data = response["info"]
     else
